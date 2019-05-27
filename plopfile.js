@@ -1,5 +1,4 @@
-// const base = './src/components/'
-const base = './src/'
+const base = './src/components/'
 module.exports = function(plop) {
   // controller generator
   plop.setGenerator('controller', {
