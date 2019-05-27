@@ -69,8 +69,7 @@ export default {
   data() {
     return {
       show: false,
-      lock: undefined,
-      positionClass: this.position
+      lock: undefined
     };
   },
   watch: {
@@ -84,6 +83,11 @@ export default {
         document.body.classList.remove("hidden_scoll_bar");
       }
 
+      this.$nextTick(() => {
+        this.updateControlLayout();
+      });
+    },
+    positionClass() {
       this.$nextTick(() => {
         this.updateControlLayout();
       });
@@ -112,11 +116,14 @@ export default {
         }
       }
     },
+    positionClass() {
+      return this.position;
+    },
     isHorizontal() {
-      return ["left", "right"].includes(this.position);
+      return ["left", "right"].includes(this.positionClass);
     },
     isVertical() {
-      return ["bottom", "top"].includes(this.position);
+      return ["bottom", "top"].includes(this.positionClass);
     }
   },
   mounted() {
@@ -193,16 +200,16 @@ export default {
     updateControlLayout() {
       const controlsContainerEl = this.$refs["controls__container"];
       const rect = controlsContainerEl.getBoundingClientRect();
-      if (this.position === "top") {
+      if (this.positionClass === "top") {
         controlsContainerEl.style["bottom"] = `-${rect.height}px`;
       }
-      if (this.position === "bottom") {
+      if (this.positionClass === "bottom") {
         controlsContainerEl.style["top"] = `-${rect.height}px`;
       }
-      if (this.position === "right") {
+      if (this.positionClass === "right") {
         controlsContainerEl.style["left"] = `-${rect.width}px`;
       }
-      if (this.position === "left") {
+      if (this.positionClass === "left") {
         controlsContainerEl.style["right"] = `-${rect.width}px`;
       }
     }
