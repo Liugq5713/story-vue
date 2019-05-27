@@ -1,0 +1,17 @@
+/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-unused-vars
+import Vue from 'vue'
+import { storiesOf } from '@storybook/vue'
+import {{name}} from './index'
+import note from './README.md'
+
+storiesOf('{{name}}', module).add(
+  'without props',
+  () => ({
+    components: { {{name}} },
+    template: '<{{name}}></{{name}}>'
+  }),
+  {
+    notes: note
+  }
+)

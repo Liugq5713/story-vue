@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "start-storybook",
-    "docs:story": "build-storybook -c .storybook -o docs"
+    "docs:story": "build-storybook -c .storybook -o docs",
+    "new": "plop"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -27,6 +28,7 @@
     "babel-preset-vue": "^2.0.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "plop": "^2.3.0",
     "vue-loader": "^15.7.0",
     "vue-template-compiler": "^2.6.10"
   },

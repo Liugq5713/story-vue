@@ -1,3 +1,4 @@
+
 <template>
   <div class="wrapper" ref="luckdraw">
     <div class="item">
