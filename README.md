@@ -6,6 +6,6 @@ Some Components Once I Practice
 
 ## List
 
-- Drawer,[preview](https://so-easy.cc/components/?path=/story/drawer--without-props)
-- LuckDraw,[preview](https://so-easy.cc/components/?path=/story/luckdraw--without-props)
-- WatermarkToDiv,[preview](https://so-easy.cc/components/?path=/story/watermarktodiv--without-props)
+- Drawer,[click to preview](https://so-easy.cc/components/?path=/story/drawer--without-props)
+- LuckDraw,[click to preview](https://so-easy.cc/components/?path=/story/luckdraw--without-props)
+- WatermarkToDiv,[click to preview](https://so-easy.cc/components/?path=/story/watermarktodiv--without-props)
