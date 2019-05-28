@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { withKnobs, text, select } from '@storybook/addon-knobs'
+import addons from '@storybook/addons'
+import Events from '@storybook/core-events'
 import Drawer from './index'
 import note from './README.md'
 
