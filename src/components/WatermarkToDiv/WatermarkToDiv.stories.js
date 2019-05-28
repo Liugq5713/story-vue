@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import { storiesOf } from '@storybook/vue'
 import WatermarkToDiv from './index'
-import note from './README.md'
+import notes from './README.md'
 
 storiesOf('WatermarkToDiv', module).add(
   'without props',
@@ -14,6 +14,6 @@ storiesOf('WatermarkToDiv', module).add(
     </WatermarkToDiv>`
   }),
   {
-    notes: note
+    notes
   }
 )

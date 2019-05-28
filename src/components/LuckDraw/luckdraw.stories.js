@@ -3,8 +3,15 @@
 import Vue from 'vue'
 import { storiesOf } from '@storybook/vue'
 import LuckDraw from './index'
+import notes from './README.md'
 
-storiesOf('LuckDraw', module).add('without props', () => ({
-  components: { LuckDraw },
-  template: '<LuckDraw></LuckDraw>'
-}))
+storiesOf('LuckDraw', module).add(
+  'without props',
+  () => ({
+    components: { LuckDraw },
+    template: '<LuckDraw></LuckDraw>'
+  }),
+  {
+    notes
+  }
+)
