@@ -32,6 +32,7 @@
 
 <script>
 import { setTimeout } from "timers";
+import { Promise } from "q";
 export default {
   props: {
     triggerEvent: {
@@ -56,7 +57,7 @@ export default {
     },
     controlOffset: {
       type: [String, Number],
-      default: 400
+      default: 200
     },
     contentSize: {
       type: [String, Number],
@@ -88,9 +89,10 @@ export default {
       });
     },
     positionClass() {
-      this.$nextTick(() => {
+      this.updateControlOffset();
+      setTimeout(() => {
         this.updateControlLayout();
-      });
+      }, 100);
     }
   },
   computed: {
@@ -127,22 +129,7 @@ export default {
     }
   },
   mounted() {
-    let controlOffset = this.controlOffset;
-    let contentSize = this.contentSize;
-    if (typeof controlOffset === "number") {
-      controlOffset = `${controlOffset}px`;
-    }
-    if (typeof contentSize === "number") {
-      contentSize = `${contentSize}px`;
-    }
-    if (this.isVertical) {
-      this.$refs["controls__container"].style["left"] = controlOffset;
-      this.$refs["drawer"].style.maxHeight = contentSize;
-    }
-    if (this.isHorizontal) {
-      this.$refs["controls__container"].style["top"] = controlOffset;
-      this.$refs["drawer"].style.maxWidth = contentSize;
-    }
+    this.updateControlOffset();
     this.updateControlLayout();
   },
   destroyed() {
@@ -195,6 +182,26 @@ export default {
       }
       if (this.triggerEvent === "mouseover") {
         window.removeEventListener("mouseover", this.closeSidebar);
+      }
+    },
+    updateControlOffset() {
+      this.$refs["controls__container"].removeAttribute("style");
+      this.$refs["drawer"].removeAttribute("style");
+      let controlOffset = this.controlOffset;
+      let contentSize = this.contentSize;
+      if (typeof controlOffset === "number") {
+        controlOffset = `${controlOffset}px`;
+      }
+      if (typeof contentSize === "number") {
+        contentSize = `${contentSize}px`;
+      }
+      if (this.isVertical) {
+        this.$refs["controls__container"].style["left"] = controlOffset;
+        this.$refs["drawer"].style.maxHeight = contentSize;
+      }
+      if (this.isHorizontal) {
+        this.$refs["controls__container"].style["top"] = controlOffset;
+        this.$refs["drawer"].style.maxWidth = contentSize;
       }
     },
     updateControlLayout() {

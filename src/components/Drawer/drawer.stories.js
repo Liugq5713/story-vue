@@ -18,11 +18,7 @@ storiesOf('Drawer', module)
       notes: note
     }
   )
-  .add('custom position', () => ({
-    components: { Drawer },
-    template: '<Drawer position="top"></Drawer>'
-  }))
-  .add('custom content', () => {
+  .add('custom position', () => {
     const positions = {
       Top: 'top',
       Right: 'right',
@@ -36,6 +32,6 @@ storiesOf('Drawer', module)
           default: select('Position', positions, 'top')
         }
       },
-      template: '<Drawer :position="position"></Drawer>'
+      template: '<Drawer  :position="position"></Drawer>'
     }
   })
