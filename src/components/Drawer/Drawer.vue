@@ -32,7 +32,6 @@
 
 <script>
 import { setTimeout } from "timers";
-import { Promise } from "q";
 export default {
   props: {
     triggerEvent: {
@@ -90,9 +89,10 @@ export default {
     },
     positionClass() {
       this.updateControlOffset();
-      setTimeout(() => {
+      this.$nextTick(() => {
         this.updateControlLayout();
-      }, 100);
+      });
+      // setTimeout(() => {}, 0);
     }
   },
   computed: {
@@ -317,7 +317,6 @@ export default {
   box-sizing: border-box;
   outline: none;
   margin: 0;
-  transition: 0.1s;
   font-weight: 500;
   -moz-user-select: none;
   -webkit-user-select: none;
